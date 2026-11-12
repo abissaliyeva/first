@@ -611,6 +611,7 @@ MonoBehaviour:
   animator: {fileID: 271931357}
   portalAnimator: {fileID: 1523453166}
   coinCollectSound: {fileID: 8300000, guid: 9e65780723ddff84caa190d2f9f544a6, type: 3}
+  settingsPanel: {fileID: 0}
   jumpForce: 7
 --- !u!95 &271931357
 Animator:
@@ -663,7 +664,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4b3f13ee84806b749864a4cb68edf5da, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.131
   m_Pitch: 1
   Loop: 1
   Mute: 0
