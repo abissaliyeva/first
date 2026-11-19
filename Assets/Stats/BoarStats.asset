@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eea9b4328f26bf49963a1f6f7a0a89c, type: 3}
+  m_Name: BoarStats
+  m_EditorClassIdentifier: 
+  viewRange: 2
+  fov: 90
+  sightInterval: 0.1
+  windup: 1
+  dashSpeed: 5
+  maxDashDistance: 4.5
+  wallCheck: 0.2
+  stun: 2
+  hitRadius: 0.4
+  damage: 1
+  returnSpeed: 1.6

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WispShooter : MonoBehaviour
 {
+    public WispStats wispStats;
     enum State { Idle, Aim, Fire, Cooldown }
 
     [SerializeField] GameObject player; 
@@ -11,17 +12,16 @@ public class WispShooter : MonoBehaviour
     [SerializeField] GameObject laser;
     [SerializeField] LayerMask obstacleMask; 
 
-    [SerializeField] float viewRange = 7f;
-    [SerializeField] float fov = 90f;
-    [SerializeField] float sightInterval = 0.1f;
-    
+    private float viewRange;
+    private float fov;
+    private float sightInterval;
 
-    [SerializeField] float aimTime = 0.6f; 
-    [SerializeField] float fireTime = 0.15f; 
-    [SerializeField] float cooldown = 1.5f;
-    [SerializeField] float shotSpeed = 3.75f;
-    [SerializeField] int damage = 1;
-    [SerializeField] float warningWidth = 0.1f;
+    private float aimTime;
+    private float fireTime = 0.15f; 
+    private float cooldown = 1.5f;
+    private float shotSpeed = 3.75f;
+    private int damage = 1;
+    private float warningWidth = 0.1f;
 
     State state;
     float timer;
@@ -39,6 +39,16 @@ public class WispShooter : MonoBehaviour
             laser.SetActive(false);
             warningSpriteSize = laser.GetComponent<SpriteRenderer>().sprite.bounds.size;
         }
+
+        viewRange = wispStats.viewRange;
+        fov = wispStats.fov;
+        sightInterval = wispStats.sightInterval;
+        aimTime = wispStats.aimTime;
+        fireTime = wispStats.fireTime;
+        cooldown = wispStats.cooldown;
+        shotSpeed = wispStats.shotSpeed;
+        damage = wispStats.damage;
+        warningWidth = wispStats.warningWidth;
     }
 
     void Start() => SetState(State.Idle);

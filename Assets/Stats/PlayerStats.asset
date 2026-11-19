@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f48a2845daed0d4fab582e1656269bb, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpForce: 7
+  hp: 3
+  cooldown: 0.3
+  goal: 10

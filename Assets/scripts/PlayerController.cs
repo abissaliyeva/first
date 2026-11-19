@@ -3,18 +3,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 7f;
-    public float jumpForce = 12f;
+    public PlayerStats playerStats;
 
     Rigidbody2D rb; Animator anim; SpriteRenderer sr;
     Vector2 move; 
     bool onGround;
+
+    private float speed = 7f;
+    private float jumpForce = 12f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        speed = playerStats.speed;
+        jumpForce = playerStats.jumpForce;
     }
 
     // PlayerInput (Behavior: Send Messages) сам вызывает эти методы:

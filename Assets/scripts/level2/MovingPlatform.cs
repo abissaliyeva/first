@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public Vector3 offset = new Vector3(4f, 0f, 0f);
-    public float speed = 0.5f;
+    public PlatformStats platformStats;
+    private Vector3 offset;
+    private float speed = 0.5f;
 
     private Vector3 start;
 
     void Start()
     {
         start = transform.position;
+        offset = platformStats.offset;
+        speed = platformStats.speed;
     }
 
     void FixedUpdate()

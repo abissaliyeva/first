@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public float cooldown = 0.3f;
+    public PlayerStats PlayerStats;
+    private GameObject bulletPrefab;
+    
+    private float cooldown = 0.3f;
     public AudioClip audioClip;
     float nextShot;
     private AudioSource audioSource;
@@ -13,6 +15,7 @@ public class Shooter : MonoBehaviour
     void Awake(){
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        cooldown = PlayerStats.cooldown;
     }
 
     public void Shoot()

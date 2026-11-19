@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int maxHp = 20;
+    public BossStats bossStats;
+    
     public int hp;
     public BossHealthBar bar;
     public Animator exitAnimator;
     public Animator animator;
+
+    private int maxHp = 20;
 
     void Start()
     {
