@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BeetlePatroller : MonoBehaviour
 {
+    public BeetleStats beetleStats;
     enum State { Patrol, Chase, Windup, Strike }
 
     [SerializeField] GameObject player;
@@ -11,24 +12,24 @@ public class BeetlePatroller : MonoBehaviour
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] LayerMask playerMask;
 
-    [SerializeField] float viewRange = 4.5f;
-    [SerializeField] float fov = 90f;
-    [SerializeField] float sightInterval = 0.1f;
+    private float viewRange = 4.5f;
+    private float fov = 90f;
+    private float sightInterval = 0.1f;
 
-    [SerializeField] float patrolSpeed = 1.4f; 
-    [SerializeField] float chaseSpeed = 2.0f; 
-    [SerializeField] float leashExtra = 1.5f; 
-    [SerializeField] float loseTime = 2f;
+    private float patrolSpeed = 1.4f; 
+    private float chaseSpeed = 2.0f; 
+    private float leashExtra = 1.5f; 
+    private float loseTime = 2f;
 
-    [SerializeField] float attackRange = 0.9f;
-    [SerializeField] float attackHeight = 0.8f;
-    [SerializeField] float windup = 0.5f; 
-    [SerializeField] float recovery = 0.4f;
-    [SerializeField] float cooldown = 1.0f;
-    [SerializeField] float hitReach = 0.7f;
-    [SerializeField] float hitRadius = 0.6f;
-    [SerializeField] int damage = 1;
-    [SerializeField] int health = 1;
+    private float attackRange = 0.9f;
+    private float attackHeight = 0.8f;
+    private float windup = 0.5f; 
+    private float recovery = 0.4f;
+    private float cooldown = 1.0f;
+    private float hitReach = 0.7f;
+    private float hitRadius = 0.6f;
+    private int damage = 1;
+    private int health = 1;
 
     State state;
     float timer; 

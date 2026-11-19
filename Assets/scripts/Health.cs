@@ -5,12 +5,14 @@ using TMPro;
 
 public class Health : MonoBehaviour
 {
-    public int hp = 3;
+    public PlayerStats playerStats;
+    
     public TextMeshProUGUI healthText;   
     public AudioClip damageSound;
     public AudioClip healSound;
 
     private AudioSource audioSource;
+    private int hp = 3;
 
     bool invincible;
     SpriteRenderer sr;

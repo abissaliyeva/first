@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d65a682f33fb84b9d1e658510f5803, type: 3}
+  m_Name: Level_04
+  m_EditorClassIdentifier: 
+  levelNumber: 4
+  levelName: Level 4
+  goal: 0
+  layoutPrefab: {fileID: 5679938462900252295, guid: 497772acc7e0aa14d8b65163b9306fd3, type: 3}
+  playerSpawnPosition: {x: 405.631, y: 205.064, z: 0}
+  exitPosition: {x: 408.608, y: 207.071, z: 0}
+  coinPrefab: {fileID: 8025902050703587524, guid: e5552c9c4d6d3154c8959a9958099be3, type: 3}
+  coinPositions:
+  - {x: 406.215, y: 206.454, z: 0}
+  - {x: 409.586, y: 206.399, z: 0}
+  - {x: 408.891, y: 205.808, z: 0}
+  - {x: 407.695, y: 205.216, z: 0}
+  - {x: 406.221, y: 205.153, z: 0}
+  - {x: 407.337, y: 206.646, z: 0}
+  coinsRequired: 6
+  enemies: []
+  timeLimit: 120
+  threeStarGoal: 30
+  twoStarGoal: 60

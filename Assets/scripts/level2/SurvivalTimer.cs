@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SurvivalTimer : MonoBehaviour
 {
-    public float goal = 10f;
+    public PlayerStats playerStats;
+    private float goal = 10f;
+    
     public Animator animator;
     float t;
     public bool won;

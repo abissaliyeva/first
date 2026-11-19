@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b755c546cf9b7a442aab1a27a9e9450d, type: 3}
+  m_Name: BeetleStats
+  m_EditorClassIdentifier: 
+  viewRange: 1
+  fov: 90
+  sightInterval: 0.1
+  patrolSpeed: 0.5
+  chaseSpeed: 1
+  leashExtra: 1
+  loseTime: 2
+  attackRange: 1
+  attackHeight: 1
+  windup: 0.5
+  recovery: 0.4
+  cooldown: 1
+  hitReach: 0.2
+  hitRadius: 0.4
+  damage: 1
+  health: 1

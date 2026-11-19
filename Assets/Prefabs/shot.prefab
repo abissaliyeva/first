@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350cc071b0bb5c042a51f16ea64e28f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 5
+  wispStats: {fileID: 11400000, guid: dac3508b9cc5cdb4b8329a912adbed61, type: 2}
   impactEffect: {fileID: 0}
 --- !u!50 &8703572997251290832
 Rigidbody2D:

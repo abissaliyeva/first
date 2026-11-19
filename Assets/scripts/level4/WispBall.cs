@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class WispBall : MonoBehaviour
 {
-    [SerializeField] float lifetime = 5f;
+    public WispStats wispStats;
+    private float lifetime;
     [SerializeField] GameObject impactEffect;
 
     int damage;
@@ -10,6 +11,7 @@ public class WispBall : MonoBehaviour
 
     public void Init(Vector2 direction, float speed, int dmg, LayerMask obstacles)
     {
+        lifetime = wispStats.lifetime;
         damage = dmg;
         obstacleMask = obstacles;
         var rb = GetComponent<Rigidbody2D>();

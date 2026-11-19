@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
+    public BossStats bossStats;
     public GameObject bulletPrefab;
-    public float distance = 0.4f;
+    
+    private float distance = 0.4f;
 
     void Start()
     {
