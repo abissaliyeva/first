@@ -15,22 +15,21 @@ public class Player2D : MonoBehaviour
 
     public Animator animator;
     public Animator portalAnimator;
-    public AudioClip coinCollectSound;
     public GameObject settingsPanel;
 
-    private AudioSource audioSource;
     private float speed = 7f;
     private float jumpForce = 6f;
 
     private bool onGround;
     private bool levelCompleted = false;
+    private bool isJumping = false;
+    private bool isFalling = false;
 
 
     SpriteRenderer sr;
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         speed = playerStats.speed;
@@ -62,9 +61,22 @@ public class Player2D : MonoBehaviour
     {
         if(transform.position.y < 204.678)
         {
+            if(!isFalling)
+            {
+                StartCoroutine(DieAndRestart());
+            }
             Restart();
         }
     }
+
+    private IEnumerator DieAndRestart()
+    {
+        isFalling = true;
+        MusicManager.Instance.PlayLose();
+        yield return new WaitForSecondsRealtime(0.8f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 
     
     void OnCollisionEnter2D(Collision2D other)
@@ -85,7 +97,7 @@ public class Player2D : MonoBehaviour
         {
             Destroy(other.gameObject);
             coins++;
-            audioSource.PlayOneShot(coinCollectSound);
+            MusicManager.Instance.PlayPickup();
             coinsText.text = "Coins: " + coins + " / " + coinsTotal;
             if (coinsTotal > 0 && coins >= coinsTotal)
             {
@@ -113,7 +125,7 @@ public class Player2D : MonoBehaviour
                     Debug.LogError("SaveManager is missing!");
                     return;
                 }
-
+                MusicManager.Instance.PlayWin();
                 levelCompleted = true;
 
                 // Calculate the time spent on this level

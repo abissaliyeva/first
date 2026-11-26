@@ -17,6 +17,7 @@ public class SaveData
     public int version = 1;
     public int unlockedLevel = 1;
     public float musicVolume = 1f;
+    public float sfxVolume = 1f;
 
     public List<LevelResult> results = new();
 }
