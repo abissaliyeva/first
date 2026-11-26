@@ -7,11 +7,7 @@ public class Health : MonoBehaviour
 {
     public PlayerStats playerStats;
     
-    public TextMeshProUGUI healthText;   
-    public AudioClip damageSound;
-    public AudioClip healSound;
-
-    private AudioSource audioSource;
+    public TextMeshProUGUI healthText; 
     private int hp = 3;
 
     bool invincible;
@@ -20,7 +16,6 @@ public class Health : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
         healthText.text = "Health: " + hp;
     }
 
@@ -41,14 +36,12 @@ public class Health : MonoBehaviour
         if (invincible) return;
         hp -= dmg;
         healthText.text = "Health: " + hp;
-        if(audioSource != null && damageSound != null){
-            audioSource.PlayOneShot(damageSound);
-        }
+        MusicManager.Instance.PlayHit();
 
         if (hp <= 0)
         {
-            GameOver();
-            return;                                 // don't start blinking if dead
+            StartCoroutine(DieAndRestart());
+            return;             
         }
 
         StartCoroutine(Invincibility());
@@ -58,14 +51,19 @@ public class Health : MonoBehaviour
     {
         hp += amount;
         healthText.text = "Health: " + hp;
-        if(audioSource != null && healSound != null){
-            audioSource.PlayOneShot(healSound);
-        }
+        MusicManager.Instance.PlayHeal();
     }
 
     void GameOver()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("Game Over");
+    }
+
+    private IEnumerator DieAndRestart()
+    {
+        MusicManager.Instance.PlayLose();
+        yield return new WaitForSecondsRealtime(0.8f);
+        GameOver();
     }
 }

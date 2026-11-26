@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 7f;
     private float jumpForce = 12f;
+    private bool isJumping = false;
 
     void Awake()
     {
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
     {
         if (onGround) rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         onGround = false;
+        isJumping = true;
+        anim.SetBool("IsJump", true);
     }
 
     public void OnFire() { GetComponent<Shooter>().Shoot(); }
@@ -44,6 +47,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground")){
             onGround = true;
             anim.SetBool("IsJump", false);
+            if (isJumping) {
+                isJumping = false;
+                MusicManager.Instance.PlayLand();
+            }
         }
         if (other.gameObject.CompareTag("Enemy"))
             gameObject.GetComponent<Health>().TakeDamage(1);

@@ -205,4 +205,10 @@ public class SaveManager : MonoBehaviour
     {
         Save();
     }
+
+    public void SetSfxVolume(float value)
+    {
+        Data.sfxVolume = Mathf.Clamp01(value);
+        Save();
+    }
 }
